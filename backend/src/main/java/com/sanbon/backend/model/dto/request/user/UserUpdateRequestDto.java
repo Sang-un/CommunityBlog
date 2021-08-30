@@ -15,7 +15,4 @@ public class UserUpdateRequestDto {
     @Pattern(regexp = "^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$",
             message = "전화번호는 01x-xxxx-xxxx 형식이 필요합니다.")
     private String phone;
-    @NotBlank(message = "사진은 필수 입력 값입니다.")
-    private String picture;
-
 }

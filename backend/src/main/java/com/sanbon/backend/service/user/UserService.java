@@ -37,7 +37,7 @@ public class UserService {
     @Transactional
     public ResponseEntity<User> update(Authentication authentication, UserUpdateRequestDto userUpdateRequestDto) {
         User user = userRepository.findByEmail(authentication.getName()).orElseThrow(() -> new UserNotFoundException(ErrorCode.INVALID_PARAMETER));
-        user.update(userUpdateRequestDto.getName(), userUpdateRequestDto.getPhone(), userUpdateRequestDto.getPicture());
+        user.update(userUpdateRequestDto.getName(), userUpdateRequestDto.getPhone());
         return new ResponseEntity<>(userRepository.save(user), HttpStatus.OK);
 
     }

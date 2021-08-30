@@ -27,8 +27,6 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false)
     private String phone;
 
-    @Column
-    private String picture;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -38,19 +36,17 @@ public class User extends BaseTimeEntity {
 //    private List<Bulletin> bulletinList;
 
     @Builder
-    public User(String name, String password, String email, String phone, String picture, Role role) {
+    public User(String name, String password, String email, String phone, Role role) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.phone = phone;
-        this.picture = picture;
         this.role = role;
     }
 
-    public User update(String name, String phone, String picture) {
+    public User update(String name, String phone) {
         this.name = name;
         this.phone = phone;
-        this.picture = picture;
         return this;
     }
 
