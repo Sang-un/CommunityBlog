@@ -40,7 +40,6 @@ public class SignupRequestDto {
                 .password(bCryptPasswordEncoder.encode(password))
                 .email(email)
                 .phone(phone)
-                .picture(picture)
                 .role(Role.USER)
                 .build();
     }
