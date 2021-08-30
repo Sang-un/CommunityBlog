@@ -30,9 +30,6 @@ public class SignupRequestDto {
             message = "전화번호는 01x-xxxx-xxxx 형식이 필요합니다.")
     private String phone;
 
-    @NotBlank(message = "사진은 필수 입력 값입니다.")
-    private String picture;
-
 
     public User toEntity(BCryptPasswordEncoder bCryptPasswordEncoder) {
         return User.builder().
