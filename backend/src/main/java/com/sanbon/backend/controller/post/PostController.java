@@ -29,7 +29,4 @@ public class PostController {
     public ResponseEntity<Post> delete(@PathVariable Long id) {
         return postService.delete(id);
     }
-
-
-
 }
