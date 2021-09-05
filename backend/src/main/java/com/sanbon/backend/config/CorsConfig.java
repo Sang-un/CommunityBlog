@@ -1,5 +1,6 @@
 package com.sanbon.backend.config;
 
+import com.sanbon.backend.config.jwt.JwtProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -18,8 +19,11 @@ public class CorsConfig {
         config.addAllowedHeader("*");  // Access-Control-Request-Headers
         config.addAllowedMethod("*"); // Access-Control-Request-Method
 
+        config.addExposedHeader(JwtProperties.ACCESS_HEADER_STRING);
+        config.addExposedHeader(JwtProperties.REFRESH_HEADER_STRING);
+        source.registerCorsConfiguration("/api/**", config);
+        
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
-
 }

@@ -51,7 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // Basic: Authorization에 id, pw 넣어서 보냄
                 // Bearer: Authorization에 token 넣어서 보냄
                 .httpBasic().disable()
-
                 .addFilter(new JwtAuthenticationFilter(authenticationManager(), jwtUtil, redisUtil))
                 .addFilter(new JwtAuthorizationFilter(authenticationManager(), jwtUtil, userRepository, redisUtil))
                 .authorizeRequests()
