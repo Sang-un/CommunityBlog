@@ -45,8 +45,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         String jwtToken = jwtUtil.createToken(authResult, JwtProperties.EXPIRATION_TIME);
         String jwtRefreshToken = jwtUtil.createToken(authResult, JwtProperties.REFRESH_EXPIRATION_TIME);
-        response.addHeader(JwtProperties.ACCESS_HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
-        response.addHeader(JwtProperties.REFRESH_HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtRefreshToken);
+        response.setHeader(JwtProperties.ACCESS_HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
+        response.setHeader(JwtProperties.REFRESH_HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtRefreshToken);
         redisUtil.setDataExpire(authResult.getName(), jwtRefreshToken, JwtProperties.REFRESH_EXPIRATION_TIME);
     }
 }

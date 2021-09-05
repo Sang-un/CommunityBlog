@@ -77,7 +77,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                     Authentication authentication = new UsernamePasswordAuthenticationToken(principalDetails, null, principalDetails.getAuthorities());
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                     String jwtToken = jwtUtil.createToken(authentication, JwtProperties.EXPIRATION_TIME);
-                    response.addHeader(JwtProperties.ACCESS_HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
+                    response.setHeader(JwtProperties.ACCESS_HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
                 }
             }
 

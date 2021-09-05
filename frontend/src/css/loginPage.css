@@ -1,0 +1,37 @@
+.heading{
+    color:white;
+    font-size:2em;
+    margin-bottom:0.5em;
+}
+
+.login-body-div{
+    margin: 0 auto;
+    position: relative;
+    top:15rem;
+    max-width: 40%!important;
+    background: #fff !important;
+    height:25rem;
+    color:whitesmoke;
+}
+
+.login-body-div2{
+    margin: 0 auto;
+    border-radius:5px;
+}
+
+.login-body-div2{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color:whitesmoke;
+    background: #4a8ad5;
+}
+.loginButton{
+    margin-top:10px;
+    margin-bottom:10px;
+    border-radius:5px;
+}
+.loginButton:hover{
+    transform: translate(-1%,5%);
+    box-shadow: 0 0 10px #ffca2c;
+}
